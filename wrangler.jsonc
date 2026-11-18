@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "barista-lab",
+  "compatibility_date": "2026-11-01",
+  // Static-only Worker: serves the Vite build output, no server code.
+  "assets": {
+    "directory": "./dist",
+    // Unknown paths fall back to index.html (matches the PWA navigateFallback).
+    "not_found_handling": "single-page-application"
+  }
+}

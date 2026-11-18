@@ -141,3 +141,21 @@
 @media (prefers-reduced-motion: reduce) {
   .gauge__needle { transition: none; }
 }
+
+/* ---------- phones & touch ---------- */
+@media (max-width: 999px) {
+  /* Leave room to scroll past the scene: the canvas captures touch for orbiting. */
+  .lab__canvas { height: min(52vh, 460px); height: min(52svh, 460px); min-height: 320px; }
+  .lab__stage { border-radius: 20px; }
+  .lab__panel, .lab__hud, .lab__timeline { margin: 0 10px 10px; }
+}
+@media (pointer: coarse) {
+  .lab__profiles button { min-height: 38px; padding: 8px 12px; font-size: 0.82rem; }
+  .lab__speeds button { min-width: 44px; min-height: 40px; }
+  .lab__toggles { gap: 18px; }
+  .lab__toggles label { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; }
+  .lab__toggles input { width: 20px; height: 20px; }
+  .lab__apply { min-height: 48px; }
+  .lab__panel .field__value input { font-size: 16px; padding: 3px 8px; }
+  .lab__panel input[type='range'] { height: 32px; }
+}

@@ -387,7 +387,7 @@ export function Simulator() {
         </button>
       </div>
 
-      <div className="sim__results">
+      <div className="sim__results" id="sim-results">
         <Card title={`${t('sections.results')} · ${tDyn(`drinks.${drink.id}`)}`} className="results">
           <div className="badges">
             <span className={`badge badge--${result.extraction}`}>{t(`results.extraction.${result.extraction}`)}</span>
@@ -549,11 +549,17 @@ export function Simulator() {
         </Card>
       </div>
 
-      <div className="sticky-summary" aria-hidden>
+      <button
+        type="button"
+        className="sticky-summary"
+        aria-label={t('results.jump')}
+        onClick={() => document.getElementById('sim-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+      >
         <span>EY {fmt(result.ey, 1)}%</span>
         <span>TDS {fmt(result.tds, method === 'espresso' ? 1 : 2)}%</span>
         <span className={`badge badge--${result.extraction}`}>{t(`results.extraction.${result.extraction}`)}</span>
-      </div>
+        <span className="sticky-summary__go" aria-hidden="true">↓</span>
+      </button>
     </div>
   );
 }

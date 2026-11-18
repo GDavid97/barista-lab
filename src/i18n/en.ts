@@ -615,6 +615,7 @@ export const en: Dict = {
     coarse: 'coarse',
   },
   results: {
+    jump: 'Jump to results',
     ey: 'Extraction (EY)',
     tds: 'Strength (TDS)',
     finalTds: 'Strength in drink',

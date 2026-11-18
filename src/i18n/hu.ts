@@ -613,6 +613,7 @@ export const hu = {
     coarse: 'durva',
   },
   results: {
+    jump: 'Ugrás az eredményekhez',
     ey: 'Kivonatolás (EY)',
     tds: 'Erősség (TDS)',
     finalTds: 'Erősség az italban',

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { requestPersistentStorage } from './db/schema';
 import { useI18n } from './i18n';
 import { Beans } from './pages/Beans';
@@ -46,6 +46,15 @@ function useHashRoute(): Location {
 export function App() {
   const { t, lang, setLang } = useI18n();
   const { route, path } = useHashRoute();
+  const tabsRef = useRef<HTMLElement>(null);
+
+  // The tab strip scrolls sideways on phones: keep the active tab in view.
+  useEffect(() => {
+    const el = tabsRef.current?.querySelector<HTMLElement>('a.is-active');
+    if (!el || !tabsRef.current) return;
+    const nav = tabsRef.current;
+    nav.scrollTo({ left: el.offsetLeft - (nav.clientWidth - el.offsetWidth) / 2, behavior: 'smooth' });
+  }, [route]);
 
   useEffect(() => {
     void requestPersistentStorage();
@@ -87,7 +96,7 @@ export function App() {
         </div>
       </header>
       {route !== 'home' && (
-      <nav className="tabs" aria-label="main">
+      <nav className="tabs" aria-label="main" ref={tabsRef}>
         {TABS.map((r) => (
           <a key={r} href={`#/${r}`} className={route === r ? 'is-active' : ''} aria-current={route === r ? 'page' : undefined}>
             {t(`nav.${r}`)}

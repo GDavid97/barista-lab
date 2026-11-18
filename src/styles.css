@@ -528,3 +528,72 @@ a.brand { color: inherit; text-decoration: none; }
 .grind-guide__rec { font-size: 0.85rem; padding: 8px 10px; border-radius: 10px; background: var(--accent-soft); }
 .grind-ranges { font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) { .grind-scale__marker { transition: none; } }
+
+/* ================= Mobile & touch polish ================= */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overscroll-behavior-y: none; }
+button, a, summary, label, input, select { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+/* Notch / home-indicator safe areas (viewport-fit=cover is set in index.html). */
+.app {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
+}
+.topbar { padding-top: max(16px, env(safe-area-inset-top)); }
+.tabs { top: env(safe-area-inset-top); }
+
+/* Tab strip: swipeable with snap, fades at the edge to hint there is more. */
+.tabs {
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs a { scroll-snap-align: center; }
+
+/* Tappable summary bar (simulator, phones only). */
+.sticky-summary { width: 100%; border: 0; border-top: 1px solid var(--border); color: var(--text); cursor: pointer; font: inherit; font-weight: 600; }
+.sticky-summary__go {
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent); font-weight: 800;
+}
+.sim__results { scroll-margin-top: calc(64px + env(safe-area-inset-top)); }
+
+@media (pointer: coarse) {
+  /* ≥40px tap targets */
+  .chip { min-height: 40px; padding: 8px 14px; }
+  .chips--tight .chip { min-height: 32px; }
+  .segmented button { min-height: 40px; }
+  .segmented--small button { min-height: 36px; min-width: 40px; }
+  .btn { min-height: 44px; }
+  .link-btn { min-height: 40px; }
+  .icon-btn { width: 40px; height: 40px; }
+  .tabs a { padding: 10px 12px; }
+  .stepper button { min-height: 52px; }
+  input[type='range'] { height: 36px; }
+  .toggle { min-height: 40px; }
+  .calib-details summary { padding: 8px 0; }
+  .diag__why { display: inline-block; padding: 10px 6px; margin: -10px 0; }
+  .journal-item__pick input, .checklist input { width: 22px; height: 22px; }
+
+  /* iOS Safari zooms into any focused field under 16px. */
+  input:not([type='range']):not([type='checkbox']):not([type='radio']), select, textarea { font-size: 16px; }
+  .field__value input { padding: 4px 8px; }
+}
+
+/* Hover lifts stick after a tap on touch screens: only animate on real hover. */
+@media (hover: none) {
+  .feature:hover, .cta--primary:hover, .cta--ghost:hover, .cta--light:hover, .lab__apply:hover { transform: none; }
+  .feature:hover::before { opacity: 0; }
+  .feature:hover .feature__icon { transform: none; }
+  .cta:hover span { transform: none; }
+}
+
+@media (max-width: 480px) {
+  .card { padding: 14px; }
+  .page { gap: 18px; }
+  .runner__controls .btn { padding: 14px 10px; }
+  .form-actions { flex-wrap: wrap; }
+  .form-actions .btn { flex: 1 1 auto; }
+  .kv-table { font-size: 0.85rem; }
+  .kv-table th, .kv-table td { padding: 6px 4px; }
+}

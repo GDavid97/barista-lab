@@ -597,3 +597,9 @@ button, a, summary, label, input, select { -webkit-tap-highlight-color: transpar
   .kv-table { font-size: 0.85rem; }
   .kv-table th, .kv-table td { padding: 6px 4px; }
 }
+
+/* ---------- Privacy notice ---------- */
+.footer a { color: inherit; }
+.privacy__updated { margin: 0; }
+.privacy__list { margin: 0 0 10px; }
+.privacy .card__title { font-size: 1rem; }

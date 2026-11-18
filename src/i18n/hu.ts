@@ -10,7 +10,7 @@ export const hu = {
     disclaimer:
       'A becslés fizikai alapú modellből származik, nem laboratóriumi mérés. Az őrlő-adatok közelítők – kalibráld a saját őrlődet!',
   },
-  nav: { simulator: 'Szimulátor', brew: 'Főzés', journal: 'Napló', gear: 'Saját pultom', beans: 'Babkamra', settings: 'Beállítások', learn: 'Tanulás', home: 'Kezdőlap', lab: '3D labor' },
+  nav: { simulator: 'Szimulátor', brew: 'Főzés', journal: 'Napló', gear: 'Saját pultom', beans: 'Babkamra', settings: 'Beállítások', learn: 'Tanulás', home: 'Kezdőlap', lab: '3D labor', privacy: 'Adatvédelem' },
   common: {
     add: 'Hozzáadás',
     save: 'Mentés',
@@ -320,6 +320,7 @@ export const hu = {
     installUnavailable: 'Telepíteni a böngésző menüjéből is lehet („Alkalmazás telepítése”).',
     online: 'Online',
     offline: 'Offline – minden funkció működik',
+    privacyHint: 'Az adataid csak ezen az eszközön tárolódnak, sehová nem kerülnek feltöltésre.',
     storagePersisted: 'Tartós tárolás engedélyezve: a böngésző nem törli az adatokat.',
     storageNotPersisted: 'A böngésző helyhiány esetén törölheti az adatokat – készíts rendszeresen mentést!',
     version: 'Verzió',

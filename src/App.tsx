@@ -10,11 +10,12 @@ import { Landing } from './pages/Landing';
 // three.js is heavy: load the 3D lab (and three) only when the page is opened.
 const Lab = lazy(() => import('./pages/Lab'));
 import { Learn } from './pages/Learn';
+import { Privacy } from './pages/Privacy';
 import { Settings } from './pages/Settings';
 import { Simulator } from './pages/Simulator';
 import { PwaToasts } from './pwa';
 
-const ROUTES = ['home', 'simulator', 'brew', 'lab', 'journal', 'gear', 'beans', 'settings', 'learn'] as const;
+const ROUTES = ['home', 'simulator', 'brew', 'lab', 'journal', 'gear', 'beans', 'settings', 'learn', 'privacy'] as const;
 /** Routes shown as tabs; settings lives behind the header button. */
 const TABS = ['simulator', 'brew', 'lab', 'journal', 'beans', 'gear', 'learn'] as const;
 type Route = (typeof ROUTES)[number];
@@ -118,8 +119,11 @@ export function App() {
         {route === 'beans' && <Beans />}
         {route === 'settings' && <Settings />}
         {route === 'learn' && <Learn path={path} />}
+        {route === 'privacy' && <Privacy />}
       </main>
-      <footer className="footer">{t('footer.phase')}</footer>
+      <footer className="footer">
+        {t('footer.phase')} · <a href="#/privacy">{t('nav.privacy')}</a>
+      </footer>
       <PwaToasts />
     </div>
   );

@@ -165,6 +165,9 @@ export function Settings() {
             {status.text}
           </p>
         )}
+        <p className="help">
+          🔒 {t('settings.privacyHint')} <a href="#/privacy">{t('nav.privacy')} →</a>
+        </p>
         {persisted === false && <p className="help">{t('settings.storageNotPersisted')}</p>}
         {persisted === true && <p className="help">{t('settings.storagePersisted')}</p>}
       </Card>

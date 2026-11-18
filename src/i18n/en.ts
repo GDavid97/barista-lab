@@ -12,7 +12,7 @@ export const en: Dict = {
     disclaimer:
       'Estimates come from a physics-based model, not lab measurements. Grinder data is approximate – calibrate your own grinder!',
   },
-  nav: { simulator: 'Simulator', brew: 'Brew', journal: 'Journal', gear: 'My bar', beans: 'Bean shelf', settings: 'Settings', learn: 'Learn', home: 'Home', lab: '3D lab' },
+  nav: { simulator: 'Simulator', brew: 'Brew', journal: 'Journal', gear: 'My bar', beans: 'Bean shelf', settings: 'Settings', learn: 'Learn', home: 'Home', lab: '3D lab', privacy: 'Privacy' },
   common: {
     add: 'Add',
     save: 'Save',
@@ -322,6 +322,7 @@ export const en: Dict = {
     installUnavailable: 'You can also install from the browser menu (“Install app”).',
     online: 'Online',
     offline: 'Offline – everything still works',
+    privacyHint: 'Your data is stored only on this device and is never uploaded anywhere.',
     storagePersisted: 'Persistent storage granted: the browser will not evict your data.',
     storageNotPersisted: 'The browser may evict data under storage pressure – back up regularly!',
     version: 'Version',
